@@ -169,10 +169,11 @@ export default function Home() {
               <div className="relative w-full aspect-square max-w-md mx-auto">
                 <div className="absolute inset-0 bg-primary-500/20 rounded-3xl blur-2xl" />
                 <div className="relative w-full h-full bg-dark-800 rounded-3xl border border-dark-700 overflow-hidden">
-                  <video autoPlay muted loop playsInline className="w-full h-full object-cover">
-                    <source src="https://pub-0459c8bf6e9348e592f4decd8b6bab91.r2.dev/altimetrix/shared/videos/Maison_Occitanie_Horizontal.webm" type="video/webm" />
-                    <source src="https://pub-0459c8bf6e9348e592f4decd8b6bab91.r2.dev/altimetrix/shared/videos/Maison_Occitanie_Horizontal.mp4" type="video/mp4" />
-                  </video>
+                  <video
+                    src="https://pub-0459c8bf6e9348e592f4decd8b6bab91.r2.dev/altimetrix/shared/videos/Maison_Occitanie_Horizontal.mp4"
+                    autoPlay muted loop playsInline
+                    className="w-full h-full object-cover"
+                  />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                     <p className="text-sm font-semibold text-white/90 drop-shadow-md">Maison Occitanie — Vue aérienne</p>
                     <Link href="/demo" className="inline-flex items-center gap-1 text-xs text-primary-400 hover:text-primary-300 transition-colors drop-shadow-md">
