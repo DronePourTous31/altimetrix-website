@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Signature manquante" }, { status: 400 });
   }
 
-  let event: Stripe.Event;
+  let event: any;
   try {
     const stripe = getStripe();
     event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET);
@@ -30,7 +30,7 @@ export async function POST(req: Request) {
   const supabase = await createClient();
 
   if (event.type === "checkout.session.completed") {
-    const session = event.data.object as Stripe.Checkout.Session;
+    const session = event.data.object as any;
     const projetId = session.metadata?.projet_id;
     const userId = session.metadata?.user_id;
 
