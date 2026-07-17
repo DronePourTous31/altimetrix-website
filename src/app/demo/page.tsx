@@ -14,7 +14,7 @@ export default function DemoPage() {
           ← AltiMetrix
         </a>
         <a
-          href="https://altimetrix-557690596795-eu-north-1-an.s3.eu-north-1.amazonaws.com/altimetrix/shared/index_3D.html?client=FAURES_BRAX"
+          href="https://pub-0459c8bf6e9348e592f4decd8b6bab91.r2.dev/altimetrix/shared/index_3D.html?client=FAURES_BRAX"
           target="_blank"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold transition-colors shadow-lg"
         >
@@ -36,9 +36,9 @@ export default function DemoPage() {
         </div>
       )}
 
-      {/* S3 Viewer iframe - plein écran sans overlap */}
+      {/* R2 Viewer iframe - plein écran sans overlap */}
       <iframe
-        src="https://altimetrix-557690596795-eu-north-1-an.s3.eu-north-1.amazonaws.com/altimetrix/shared/index_3D.html?client=FAURES_BRAX"
+        src="https://pub-0459c8bf6e9348e592f4decd8b6bab91.r2.dev/altimetrix/shared/index_3D.html?client=FAURES_BRAX"
         className="w-full flex-1 border-0"
         title="Démo 3D AltiMetrix"
         allow="fullscreen; gyroscope; accelerometer; magnetometer; xr-spatial-tracking; clipboard-read; clipboard-write"

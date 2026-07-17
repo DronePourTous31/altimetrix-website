@@ -60,6 +60,8 @@ export default function AdminDashboard() {
   const [editViewerUrl, setEditViewerUrl] = useState("");
   const [editRapportUrl, setEditRapportUrl] = useState("");
   const [actionMsg, setActionMsg] = useState("");
+  const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState(false);
 
   const fetchData = useCallback(async () => {
     const res = await fetch("/api/admin/data");
@@ -85,6 +87,25 @@ export default function AdminDashboard() {
     setEditProjetId(null);
     fetchData();
     setTimeout(() => setActionMsg(""), 3000);
+  };
+
+  const supprimerProjet = async (projetId: string) => {
+    setDeleting(true);
+    try {
+      const res = await fetch("/api/admin/supprimer-projet", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ projet_id: projetId }),
+      });
+      const data = await res.json();
+      setActionMsg(data.success ? "Projet supprimé" : `Erreur : ${data.error}`);
+    } catch {
+      setActionMsg("Erreur réseau");
+    }
+    setDeleteConfirm(null);
+    setDeleting(false);
+    fetchData();
+    setTimeout(() => setActionMsg(""), 5000);
   };
 
   const filteredProjets = filterStatut ? projets.filter((p) => p.statut === filterStatut) : projets;
@@ -160,8 +181,17 @@ export default function AdminDashboard() {
                             <button onClick={() => { setEditProjetId(null); updateProjetStatut(p.id, "erreur"); }} className="px-2 py-1 bg-red-600 text-white rounded text-xs">Erreur</button>
                           </div>
                         </div>
+                      ) : deleteConfirm === p.id ? (
+                        <div className="flex items-center gap-1">
+                          <span className="text-xs text-red-600 font-medium">Confirmer ?</span>
+                          <button onClick={() => supprimerProjet(p.id)} disabled={deleting} className="px-2 py-1 bg-red-700 text-white rounded text-xs">{deleting ? "..." : "Oui"}</button>
+                          <button onClick={() => setDeleteConfirm(null)} className="px-2 py-1 bg-dark-200 text-dark-600 rounded text-xs">Non</button>
+                        </div>
                       ) : (
-                        <button onClick={() => { setEditProjetId(p.id); setEditViewerUrl(""); setEditRapportUrl(""); }} className="text-primary-600 hover:underline text-xs">Modifier</button>
+                        <div className="flex items-center gap-2">
+                          <button onClick={() => { setEditProjetId(p.id); setEditViewerUrl(""); setEditRapportUrl(""); }} className="text-primary-600 hover:underline text-xs">Modifier</button>
+                          <button onClick={() => setDeleteConfirm(p.id)} className="text-red-600 hover:underline text-xs">Supprimer</button>
+                        </div>
                       )}
                     </td>
                   </tr>

@@ -118,51 +118,71 @@ export default function Home() {
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-600/20 rounded-full blur-[100px]" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-          <div className="max-w-4xl">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-600/20 text-primary-300 text-sm font-medium mb-6 border border-primary-500/30"
-            >
-              <Sparkles className="w-4 h-4" /> Photogrammétrie par drone nouvelle génération
-            </motion.p>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 font-heading">
-              <LetterReveal text="Votre chantier en 3D." />
-              <br />
-              <span className="text-primary-400">
-                <LetterReveal text="Sans monter sur le toit." />
-              </span>
-            </h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="text-lg sm:text-xl text-dark-200 mb-10 max-w-2xl leading-relaxed"
-            >
-              Plus de sécurité, plus de vitesse, plus de précision. Vous captez les photos avec votre drone, 
-              nous transformons vos données en modèles 3D exploitables, analyses solaires et rapports professionnels.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.6 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Link
-                href="/auth/register"
-                className="group inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary-600 hover:bg-primary-500 text-white font-bold text-lg transition-all shadow-xl shadow-primary-600/25 hover:shadow-primary-500/40"
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-600/20 text-primary-300 text-sm font-medium mb-6 border border-primary-500/30"
               >
-                Démarrer mon premier projet
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/demo"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border-2 border-dark-400 hover:border-primary-400 text-dark-200 hover:text-primary-400 font-semibold text-lg transition-colors"
+                <Sparkles className="w-4 h-4" /> Photogrammétrie par drone nouvelle génération
+              </motion.p>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 font-heading">
+                <LetterReveal text="Votre chantier en 3D." />
+                <br />
+                <span className="text-primary-400">
+                  <LetterReveal text="Sans monter sur le toit." />
+                </span>
+              </h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                className="text-lg sm:text-xl text-dark-200 mb-10 max-w-2xl leading-relaxed"
               >
-                Voir la démo
-              </Link>
-            </motion.div>
+                Plus de sécurité, plus de vitesse, plus de précision. Vous captez les photos avec votre drone, 
+                nous transformons vos données en modèles 3D exploitables, analyses solaires et rapports professionnels.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.6 }}
+                className="flex flex-wrap gap-4"
+              >
+                <Link
+                  href="/auth/register"
+                  className="group inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary-600 hover:bg-primary-500 text-white font-bold text-lg transition-all shadow-xl shadow-primary-600/25 hover:shadow-primary-500/40"
+                >
+                  Démarrer mon premier projet
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/demo"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border-2 border-dark-400 hover:border-primary-400 text-dark-200 hover:text-primary-400 font-semibold text-lg transition-colors"
+                >
+                  Voir la démo
+                </Link>
+              </motion.div>
+            </div>
+            <div className="hidden lg:block">
+              <div className="relative w-full aspect-square max-w-md mx-auto">
+                <div className="absolute inset-0 bg-primary-500/20 rounded-3xl blur-2xl" />
+                <div className="relative w-full h-full bg-dark-800 rounded-3xl border border-dark-700 overflow-hidden">
+                  <video
+                    src="https://pub-0459c8bf6e9348e592f4decd8b6bab91.r2.dev/altimetrix/shared/videos/Maison_Occitanie_Horizontal.webm"
+                    autoPlay muted loop playsInline
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                    <p className="text-sm font-semibold text-white/90 drop-shadow-md">Maison Occitanie — Vue aérienne</p>
+                    <Link href="/demo" className="inline-flex items-center gap-1 text-xs text-primary-400 hover:text-primary-300 transition-colors drop-shadow-md">
+                      Démo <ChevronRight className="w-3 h-3" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

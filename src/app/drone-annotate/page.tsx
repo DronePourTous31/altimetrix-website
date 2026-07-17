@@ -2,9 +2,9 @@
 
 import { ExternalLink } from "lucide-react";
 
-const R2_PLANNER_URL = "https://pub-0459c8bf6e9348e592f4decd8b6bab91.r2.dev/altimetrix/shared/altimetrix_planner_v3.html";
+const R2_ANNOTATE_URL = "https://pub-0459c8bf6e9348e592f4decd8b6bab91.r2.dev/altimetrix/shared/drone-annotate.html?client=DEMO3";
 
-export default function MissionPlannerPage() {
+export default function DroneAnnotatePage() {
   return (
     <div className="bg-dark-900 min-h-screen flex flex-col">
       {/* Mini header */}
@@ -13,7 +13,7 @@ export default function MissionPlannerPage() {
           ← AltiMetrix
         </a>
         <a
-          href={R2_PLANNER_URL}
+          href={R2_ANNOTATE_URL}
           target="_blank"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold transition-colors shadow-lg"
         >
@@ -21,11 +21,11 @@ export default function MissionPlannerPage() {
         </a>
       </div>
 
-      {/* R2 Planner iframe - new filename, no cache */}
+      {/* Drone-Annotate iframe */}
       <iframe
-        src={R2_PLANNER_URL}
+        src={R2_ANNOTATE_URL}
         className="w-full flex-1 border-0"
-        title="Mission Planner AltiMetrix"
+        title="Drone-Annotate AltiMetrix"
         allowFullScreen
       />
     </div>

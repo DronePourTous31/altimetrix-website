@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import Badge from "@/components/ui/Badge";
 import { Eye, FileText, ExternalLink, Plus } from "lucide-react";
+import SupprimerProjetButton from "@/components/projects/SupprimerProjetButton";
 
 function getBadgeStatus(statut: string): "actif" | "en_cours" | "livre" | "erreur" {
   const map: Record<string, "actif" | "en_cours" | "livre" | "erreur"> = {
@@ -131,6 +132,7 @@ export default async function ProjetsPage({
                     Détails
                   </Link>
                 )}
+                <SupprimerProjetButton projetId={projet.id} projetNom={projet.nom} />
               </div>
             </div>
           ))}
